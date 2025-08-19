@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.269bf225.css",
+    "main.js": "/portfolio/static/js/main.353218f0.js",
+    "static/media/Raj Gara002.JPG": "/portfolio/static/media/Raj Gara002.8611ce4ca3bded8f548d.JPG",
+    "static/media/experience.md": "/portfolio/static/media/experience.69b2cf249ccc35b5bd7c.md",
+    "static/media/projects.md": "/portfolio/static/media/projects.3284c3198976cbbfc1e6.md",
+    "static/media/skills.md": "/portfolio/static/media/skills.70121f0d35a1a901b4d3.md",
+    "index.html": "/portfolio/index.html",
+    "static/media/education.md": "/portfolio/static/media/education.e473ad7d6dc4372a8eff.md",
+    "static/media/accomplishments.md": "/portfolio/static/media/accomplishments.479cc27eeb3d614ece91.md",
+    "main.269bf225.css.map": "/portfolio/static/css/main.269bf225.css.map",
+    "main.353218f0.js.map": "/portfolio/static/js/main.353218f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.269bf225.css",
+    "static/js/main.353218f0.js"
+  ]
+}
