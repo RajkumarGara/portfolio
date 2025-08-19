@@ -1,2 +1,6 @@
 # portfolio
-portfolio
+
+## Development
+```
+npm start
+```
