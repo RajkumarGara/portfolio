@@ -43,11 +43,17 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  /* Improve touch interactions on mobile */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .app-container {
   position: relative;
   min-height: 100vh;
+  /* Enable smooth scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Common Glass Effect */
@@ -84,6 +90,24 @@ nav:hover {
   box-shadow: var(--shadow-hard);
 }
 
+/* Desktop navigation - hide on mobile */
+.desktop-nav {
+  display: flex;
+}
+
+/* Mobile navigation styles */
+.mobile-menu-button {
+  display: none !important;
+}
+
+.mobile-menu-overlay {
+  display: none !important;
+}
+
+.mobile-menu {
+  display: none !important;
+}
+
 nav a {
   color: white;
   text-decoration: none;
@@ -94,11 +118,28 @@ nav a {
   transition: var(--transition-fast);
   position: relative;
   overflow: hidden;
+  /* Ensure proper touch targets on mobile (minimum 44px) */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 nav a:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+}
+
+/* Active/focus states for better mobile interaction */
+nav a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+nav a:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Main Content */
@@ -215,12 +256,18 @@ section.visible {
   color: var(--text-white);
   text-decoration: none;
   font-weight: 500;
+  /* Ensure proper touch targets */
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
 }
 
 .social-link {
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   transition: var(--transition-fast);
+  /* Better touch feedback */
+  cursor: pointer;
 }
 
 .social-link:hover {
@@ -229,14 +276,27 @@ section.visible {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.social-link:active {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
 .contact-item a {
   color: var(--text-white);
   text-decoration: none;
   transition: color 0.3s ease;
+  /* Ensure links are easily tappable */
+  padding: 0.25rem;
+  border-radius: 4px;
 }
 
 .contact-item a:hover {
   color: white;
+}
+
+.contact-item a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
 }
 
 /* Timeline */
@@ -327,6 +387,13 @@ section.visible {
   transition: var(--transition-fast);
   position: relative;
   overflow: hidden;
+  /* Better mobile interactions */
+  cursor: pointer;
+  /* Prevent text selection on mobile when tapping */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .project-card {
@@ -353,9 +420,20 @@ section.visible {
   box-shadow: var(--shadow-hard);
 }
 
+/* Add active state for mobile tap feedback */
+.project-card:active {
+  transform: translateY(-5px) scale(1.01);
+  transition: transform 0.1s ease;
+}
+
 .skill-category:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hard);
+}
+
+.skill-category:active {
+  transform: translateY(-2px);
+  transition: transform 0.1s ease;
 }
 
 .project-title, .skill-category h3 {
@@ -485,56 +563,394 @@ nav, .glass-card, .hero, .social-link, .timeline-content,
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .nav-container { width: 95%; }
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+  .nav-container { 
+    width: 95%; 
+    top: 15px;
+  }
   
   nav {
-    gap: 1rem;
-    padding: 0.75rem 1.5rem;
-    flex-wrap: wrap;
-  }
-  
-  nav a {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  main { padding: 120px 1rem 0; }
-  
-  .hero-title { font-size: 2.5rem; }
-  .hero-subtitle { font-size: 1.1rem; }
-  
-  .contact-info {
     gap: 1.5rem;
-    flex-direction: column;
+    padding: 0.875rem 1.75rem;
+  }
+  
+  main { 
+    padding: 110px 1.5rem 0; 
+    max-width: 95%;
+  }
+  
+  .hero-title { font-size: 3rem; }
+  .hero-avatar { width: 160px; height: 160px; }
+  
+  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .nav-container { 
+    width: 96%; 
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
   
-  .timeline::before { left: 1rem; }
-  
-  .timeline-content {
-    width: calc(100% - 3rem);
-    margin-left: 3rem !important;
+  /* Hide desktop navigation on mobile */
+  .desktop-nav {
+    display: none !important;
   }
   
-  .timeline-dot { left: 1rem; }
+  /* Show mobile navigation */
+  .mobile-menu-button {
+    display: flex !important;
+  }
   
-  .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+  .mobile-menu-overlay {
+    display: block !important;
+  }
+  
+  .mobile-menu {
+    display: flex !important;
+  }
+  
+  nav {
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav a {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.875rem;
+    margin: 0.125rem;
+  }
+  
+  main { 
+    padding: 130px 1.25rem 0; 
+  }
+  
+  .hero {
+    padding: 2.5rem 1rem 4rem;
+    margin-bottom: 4rem;
+  }
+  
+  .hero-title { 
+    font-size: 2.75rem; 
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-subtitle { 
+    font-size: 1.125rem; 
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .hero-avatar { 
+    width: 140px; 
+    height: 140px; 
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info {
+    gap: 1.25rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  
+  .contact-item {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  
+  .social-links {
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .social-link {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Timeline adjustments for tablet */
+  .timeline::before { 
+    left: 2rem; 
+    width: 3px;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 4.5rem);
+    margin-left: 4.5rem !important;
+    padding: 1.75rem;
+  }
+  
+  .timeline-dot { 
+    left: 2rem; 
+    width: 14px;
+    height: 14px;
+  }
+  
+  .projects-grid, .skills-grid { 
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+  
+  .glass-card { 
+    padding: 2rem 1.5rem; 
+  }
+  
+  .section-heading { 
+    font-size: 2.25rem; 
+    margin-bottom: 2.5rem;
+  }
+  
+  .project-card, .skill-category {
+    padding: 1.75rem;
+  }
+}
+
+/* Mobile phones - large */
+@media (max-width: 480px) {
+  .nav-container { 
+    width: 98%; 
+    top: 8px;
+    justify-content: center;
+  }
+  
+  /* Keep mobile navigation active */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  nav {
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 30px;
+  }
+  
+  nav a {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 20px;
+  }
+  
+  main { 
+    padding: 140px 1rem 0; 
+  }
+  
+  .hero {
+    padding: 2rem 0.75rem 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-title { 
+    font-size: 2.25rem; 
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-subtitle { 
+    font-size: 1rem; 
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .hero-avatar { 
+    width: 120px; 
+    height: 120px; 
+    margin-bottom: 1.25rem;
+  }
+  
+  .contact-info {
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+  
+  .contact-item {
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
   
   .social-links {
     flex-direction: column;
     align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  
+  .social-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 200px;
+    justify-content: center;
+  }
+  
+  /* Timeline for mobile */
+  .timeline::before { 
+    left: 1.5rem; 
+    width: 2px;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 3.5rem);
+    margin-left: 3.5rem !important;
+    padding: 1.5rem;
+  }
+  
+  .timeline-dot { 
+    left: 1.5rem; 
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Make timeline items stack properly on mobile */
+  .timeline-item {
+    margin: 2rem 0;
+  }
+  
+  .timeline-item:nth-child(even) {
+    transform: translateX(0) !important;
+  }
+  
+  .timeline-item:nth-child(even).visible {
+    transform: translateX(0) !important;
+  }
+  
+  .glass-card { 
+    padding: 1.5rem 1rem; 
+    border-radius: 15px;
+  }
+  
+  .section-heading { 
+    font-size: 1.875rem; 
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  .project-card, .skill-category {
+    padding: 1.5rem 1.25rem;
+    border-radius: 15px;
+  }
+  
+  .project-title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.125rem;
+  }
+  
+  .skill-item {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 2rem 1rem 3rem;
+/* Mobile phones - small */
+@media (max-width: 360px) {
+  .nav-container { 
+    width: 99%; 
+    top: 5px;
+    justify-content: center;
   }
   
-  .hero-title { font-size: 2rem; }
-  .glass-card { padding: 1.5rem; }
-  .section-heading { font-size: 2rem; }
+  /* Keep mobile navigation active */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  nav {
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.6rem;
+    margin: 0.1rem;
+  }
+  
+  main { 
+    padding: 150px 0.75rem 0; 
+  }
+  
+  .hero {
+    padding: 1.5rem 0.5rem 2.5rem;
+  }
+  
+  .hero-title { 
+    font-size: 1.875rem; 
+  }
+  
+  .hero-subtitle { 
+    font-size: 0.95rem; 
+  }
+  
+  .hero-description {
+    font-size: 0.875rem;
+  }
+  
+  .hero-avatar { 
+    width: 100px; 
+    height: 100px; 
+  }
+  
+  .glass-card { 
+    padding: 1.25rem 0.875rem; 
+  }
+  
+  .section-heading { 
+    font-size: 1.625rem; 
+  }
+  
+  .project-card, .skill-category {
+    padding: 1.25rem 1rem;
+  }
+  
+  .social-link {
+    width: 180px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
 }
 
 /* Custom Scrollbar */
@@ -545,3 +961,62 @@ nav, .glass-card, .hero, .social-link, .timeline-content,
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--gradient-secondary); }
+
+/* Performance optimizations for mobile */
+.glass-effect,
+.glass-card,
+.project-card,
+.skill-category {
+  /* Enable hardware acceleration for smoother animations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Improve scrolling performance on mobile */
+main {
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+  /* Optimize for smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Better mobile text selection */
+.hero-title,
+.hero-subtitle,
+.section-heading {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .floating {
+    animation: none;
+  }
+  
+  /* Disable parallax and complex animations */
+  .particles-container {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --glass-bg: rgba(0, 0, 0, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text-white: #ffffff;
+    --text-white-dim: #f0f0f0;
+    --text-white-light: #e0e0e0;
+  }
+}

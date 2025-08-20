@@ -23,6 +23,12 @@ function Header() {
       cursorChar: '|'
     });
 
+    // Disable animations on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      typed.cursor.style.animation = 'none';
+    }
+
     return () => typed.destroy();
   }, []);
 
@@ -57,7 +63,16 @@ function Header() {
         whileHover={{ scale: 1.05, rotate: 5 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <img src={require('../assets/Raj Gara002.JPG')} alt="Rajkumar Gara" />
+        <img 
+          src={require('../assets/Raj Gara002.JPG')} 
+          alt="Rajkumar Gara" 
+          loading="eager"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
       </motion.div>
 
       <motion.h1 className="hero-title" variants={itemVariants}>

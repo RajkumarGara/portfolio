@@ -8,6 +8,7 @@ import EducationSection from './components/EducationSection';
 import AccomplishmentsSection from './components/AccomplishmentsSection';
 import Footer from './components/Footer';
 import ParticlesBackground from './components/ParticlesBackground';
+import MobileNav from './components/MobileNav';
 import './App.css';
 
 const navLinks = [
@@ -46,9 +47,14 @@ function App() {
       const targetId = e.target.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // Add offset for mobile to account for fixed navigation
+        const isMobile = window.innerWidth <= 768;
+        const offset = isMobile ? 140 : 100;
+        const elementPosition = targetElement.offsetTop - offset;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
         });
       }
     };
@@ -81,6 +87,7 @@ function App() {
       {/* Fixed Navigation */}
       <div className="nav-container">
         <motion.nav
+          className="desktop-nav"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -97,6 +104,9 @@ function App() {
             </motion.a>
           ))}
         </motion.nav>
+        
+        {/* Mobile Navigation */}
+        <MobileNav navLinks={navLinks} />
       </div>
 
       <main>
