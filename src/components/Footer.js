@@ -4,8 +4,6 @@ import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/
 function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-light py-3 mt-3 border-top">
       <div className="container">

@@ -5,23 +5,15 @@ import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import EducationSection from './components/EducationSection';
 import AccomplishmentsSection from './components/AccomplishmentsSection';
-import ExperienceSection from './components/ExperienceSection';
-import ProjectsSection from './components/ProjectsSection';
-import SkillsSection from './components/SkillsSection';
-import EducationSection from './components/EducationSection';
-import AccomplishmentsSection from './components/AccomplishmentsSection';
 import Footer from './components/Footer';
-import ParticlesBackground from './components/ParticlesBackground';
 import ParticlesBackground from './components/ParticlesBackground';
 import './App.css';
 
 const navLinks = [
   { name: 'About', href: '#about' },
-  { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
-  { name: 'Education', href: '#education' },
   { name: 'Education', href: '#education' },
   { name: 'Accomplishments', href: '#accomplishments' },
 ];
