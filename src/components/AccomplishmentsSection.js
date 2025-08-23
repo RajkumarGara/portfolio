@@ -1,9 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  FaTrophy, FaCertificate, FaAward, FaCode, 
-  FaResearch, FaChalkboardTeacher, FaProjectDiagram 
-} from 'react-icons/fa';
+import { FaTrophy, FaCertificate, FaAward, FaCode, FaChalkboardTeacher, FaProjectDiagram } from 'react-icons/fa';
 
 function AccomplishmentsSection() {
   const accomplishments = [
@@ -72,260 +68,63 @@ function AccomplishmentsSection() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const categoryVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { x: -30, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <div className="glass-card">
-      <motion.h2 
-        className="section-heading"
-        initial={{ y: -30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Key Accomplishments
-      </motion.h2>
-      
-      <motion.div 
-        style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {accomplishments.map((category, categoryIndex) => (
-          <motion.div
-            key={categoryIndex}
-            variants={categoryVariants}
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              borderRadius: '20px',
-              padding: '2rem',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
-            }}
-          >
-            <motion.div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                marginBottom: '2rem'
-              }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <div style={{
-                fontSize: '2rem',
-                color: 'rgba(255, 255, 255, 0.9)',
-                padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '15px',
-                backdropFilter: 'blur(10px)'
-              }}>
-                {category.icon}
-              </div>
-              <h3 style={{
-                color: 'white',
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                margin: 0
-              }}>
-                {category.category}
-              </h3>
-            </motion.div>
-
-            <motion.div
-              style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
-              variants={containerVariants}
-            >
-              {category.items.map((item, itemIndex) => (
-                <motion.div
-                  key={itemIndex}
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    borderRadius: '15px',
-                    padding: '1.5rem',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(5px)'
-                  }}
-                >
-                  <motion.h4
-                    style={{
-                      color: 'white',
-                      fontSize: '1.2rem',
-                      fontWeight: '600',
-                      marginBottom: '0.8rem'
-                    }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3 + (itemIndex * 0.1), duration: 0.6 }}
-                  >
-                    {item.title}
-                  </motion.h4>
-
-                  <motion.p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      marginBottom: '1rem',
-                      lineHeight: '1.6',
-                      fontSize: '0.95rem'
-                    }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.4 + (itemIndex * 0.1), duration: 0.6 }}
-                  >
-                    {item.description}
-                  </motion.p>
-
-                  <motion.div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      padding: '0.5rem 1rem',
-                      background: 'rgba(99, 102, 241, 0.2)',
-                      borderRadius: '20px',
-                      border: '1px solid rgba(99, 102, 241, 0.3)',
-                      fontSize: '0.85rem',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      fontWeight: '500'
-                    }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + (itemIndex * 0.1), duration: 0.5 }}
-                  >
-                    <FaAward style={{ fontSize: '0.8rem' }} />
-                    <span>Impact: {item.impact}</span>
-                  </motion.div>
-                </motion.div>
+    <div className="container-fluid bg-light py-4">
+      <div className="container">
+        <div className="card bg-white text-dark mb-4 shadow-sm">
+          <div className="card-body">
+            <h2 className="card-title text-center mb-3 text-primary">Key Accomplishments</h2>
+            <div className="row">
+              {accomplishments.map((category, categoryIndex) => (
+                <div key={categoryIndex} className="col-12 mb-3">
+                  <div className="card bg-white text-dark h-100 border-0 shadow-sm border-start border-4 border-warning">
+                    <div className="card-body">
+                      <div className="d-flex align-items-center mb-3">
+                        <span style={{ fontSize: '2rem', marginRight: '1rem', color: '#0d6efd' }}>{category.icon}</span>
+                        <h3 className="h5 mb-0 text-primary">{category.category}</h3>
+                      </div>
+                      <div className="row">
+                        {category.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="col-md-6 mb-3">
+                            <div className="card bg-light text-dark h-100 border-0 shadow-sm">
+                              <div className="card-body">
+                                <h4 className="h6 mb-2 text-primary">{item.title}</h4>
+                                <p className="mb-2">{item.description}</p>
+                                <div className="badge bg-primary text-wrap" style={{ maxWidth: '100%', whiteSpace: 'normal' }}>
+                                  <FaAward className="me-1" /> Impact: {item.impact}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Summary Statistics */}
-      <motion.div
-        style={{
-          marginTop: '3rem',
-          padding: '2rem',
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '20px',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
-        }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h3 style={{
-          color: 'white',
-          textAlign: 'center',
-          marginBottom: '2rem',
-          fontSize: '1.3rem'
-        }}>
-          Career Highlights
-        </h3>
-        
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1.5rem'
-        }}>
-          {[
-            { value: "3+", label: "Years Experience", icon: <FaCode /> },
-            { value: "5+", label: "Major Projects", icon: <FaProjectDiagram /> },
-            { value: "Multiple", label: "Platforms", icon: <FaTrophy /> },
-            { value: "Teaching", label: "Experience", icon: <FaChalkboardTeacher /> }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              style={{
-                padding: '1.5rem',
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '15px',
-                textAlign: 'center',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{ 
-                scale: 1.05,
-                background: 'rgba(255, 255, 255, 0.15)'
-              }}
-              transition={{ 
-                delay: 0.9 + (index * 0.1), 
-                duration: 0.5,
-                type: "spring",
-                stiffness: 300
-              }}
-              viewport={{ once: true }}
-            >
-              <div style={{
-                fontSize: '2rem',
-                color: 'rgba(255, 255, 255, 0.9)',
-                marginBottom: '0.5rem'
-              }}>
-                {stat.icon}
-              </div>
-              <div style={{
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: 'white',
-                marginBottom: '0.5rem'
-              }}>
-                {stat.value}
-              </div>
-              <div style={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                fontSize: '0.9rem'
-              }}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </div>
-      </motion.div>
+        {/* Summary Statistics */}
+        <div className="card bg-white text-dark mt-4 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-center mb-3 text-primary">Career Highlights</h3>
+            <div className="row">
+              {[{ value: "3+", label: "Years Experience", icon: <FaCode /> },{ value: "5+", label: "Major Projects", icon: <FaProjectDiagram /> },{ value: "Multiple", label: "Platforms", icon: <FaTrophy /> },{ value: "Teaching", label: "Experience", icon: <FaChalkboardTeacher /> }].map((stat, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-3 mb-2">
+                  <div className="card bg-light text-dark h-100 text-center border-0 shadow-sm">
+                    <div className="card-body">
+                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem', color: '#0d6efd' }}>{stat.icon}</div>
+                      <div className="h5 mb-1 text-primary">{stat.value}</div>
+                      <div>{stat.label}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

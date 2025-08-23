@@ -1,5 +1,0 @@
- - **Languages:** C, C++, Python, HTML, CSS, JavaScript
- - **Tools:** MATLAB Simulink, CAN232, Oscilloscope, Multi meter, Linux, MS Excel, GitHub, Eclipse, Nodered
- - **Controllers:** TMS570LC4357, LTC6812, MC9S12XDP512, TMS320F28375S, Raspberry Pi 4, Pico-W
- - **Protocols:** CAN, J1939, SPI, SCI (UART), RS232, TCP/IP, PIT, I2C, ISO-SPI, Node.js, express
- - **Attributes:** Problem Solving, Time Management, Task Prioritizing, Critical Thinking, Self-Starter

@@ -1,104 +1,44 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const currentYear = new Date().getFullYear();
+
   return (
-    <motion.footer
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="footer-content">
-        <motion.div
-          className="social-links"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <motion.a
-            href="https://github.com/RajkumarGara"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaGithub />
-            <span>GitHub</span>
-          </motion.a>
-
-          <motion.a
-            href="https://www.linkedin.com/in/rajkumargara/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaLinkedin />
-            <span>LinkedIn</span>
-          </motion.a>
-
-          <motion.a
-            href="mailto:rajkumar.gara3@gmail.com"
-            className="social-link"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaEnvelope />
-            <span>Email</span>
-          </motion.a>
-        </motion.div>
-
-        <motion.div
-          className="footer-tech"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <span>Built with</span>
-          <motion.div
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 10, -10, 0]
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          >
-            <FaHeart className="heart-icon" />
-          </motion.div>
-          <span>using</span>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ 
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            <FaReact className="react-icon" />
-          </motion.div>
-          <span>React & Framer Motion</span>
-        </motion.div>
-
-        <motion.div
-          className="footer-copyright"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          <p>© {currentYear} Rajkumar Gara. All rights reserved.</p>
-          <p>Passionate about creating innovative solutions in embedded systems and IoT</p>
-        </motion.div>
+    <footer className="bg-light py-3 mt-3 border-top">
+      <div className="container">
+        <div className="row justify-content-center mb-3">
+          <div className="col-auto">
+            <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mx-2">
+              <FaGithub className="me-2" /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mx-2">
+              <FaLinkedin className="me-2" /> LinkedIn
+            </a>
+            <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary mx-2">
+              <FaEnvelope className="me-2" /> Email
+            </a>
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3">
+          <div className="col-auto text-center">
+            <span className="me-2">Built with</span>
+            <FaHeart className="heart-icon me-2 text-danger" />
+            <span className="me-2">using</span>
+            <FaReact className="react-icon me-2 text-primary" />
+            <span>React & Bootstrap</span>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-auto text-center">
+            <p className="mb-1 text-dark">© {currentYear} Rajkumar Gara. All rights reserved.</p>
+            <p className="mb-0 text-muted">Passionate about creating innovative solutions in embedded systems and IoT</p>
+          </div>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 import Typed from 'typed.js';
 
@@ -9,11 +8,11 @@ function Header() {
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
       strings: [
-        'Embedded Systems Engineer',
+        'Embedded Software Engineer',
         'IoT Developer',
         'Software Engineer',
-        'Problem Solver',
-        'Innovation Driver'
+        'Firmware Developer',
+        'BMS Engineer'
       ],
       typeSpeed: 50,
       backSpeed: 30,
@@ -26,101 +25,59 @@ function Header() {
     return () => typed.destroy();
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
-  };
-
-  const avatarVariants = {
-    hidden: { scale: 0, rotate: 180, opacity: 0 },
-    visible: { scale: 1, rotate: 0, opacity: 1, transition: { duration: 1, ease: "easeOut" } }
-  };
-
   return (
-    <motion.div 
-      className="hero"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.div 
-        className="hero-avatar floating"
-        variants={avatarVariants}
-        whileHover={{ scale: 1.05, rotate: 5 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <img src={require('../assets/Raj Gara002.JPG')} alt="Rajkumar Gara" />
-      </motion.div>
-
-      <motion.h1 className="hero-title" variants={itemVariants}>
-        Rajkumar Gara
-      </motion.h1>
-
-      <motion.div className="hero-subtitle" variants={itemVariants}>
-        <span ref={typedRef}></span>
-      </motion.div>
-
-      <motion.p className="hero-description" variants={itemVariants}>
-        Passionate embedded systems engineer with expertise in IoT development, 
-        battery management systems, and real-time applications. Currently pursuing 
-        advanced studies while contributing to cutting-edge technology solutions.
-      </motion.p>
-
-      <motion.div className="contact-info" variants={itemVariants}>
-        <motion.div 
-          className="contact-item"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <FaEnvelope />
-          <a href="mailto:rajkumar.gara3@gmail.com">rajkumar.gara3@gmail.com</a>
-        </motion.div>
-        <motion.div 
-          className="contact-item"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <FaPhone />
-          <span>+1(260)4101373</span>
-        </motion.div>
-      </motion.div>
-
-      <motion.div className="social-links" variants={itemVariants}>
-        <motion.a
-          href="https://github.com/RajkumarGara"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-link"
-          whileHover={{ scale: 1.1, y: -5 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <FaGithub size={20} />
-          <span>GitHub</span>
-        </motion.a>
-        
-        <motion.a
-          href="https://www.linkedin.com/in/rajkumargara/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-link"
-          whileHover={{ scale: 1.1, y: -5 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <FaLinkedin size={20} />
-          <span>LinkedIn</span>
-        </motion.a>
-      </motion.div>
-    </motion.div>
+    <div className="container py-5">
+      <div className="row align-items-center">
+        <div className="col-12 col-md-4 text-center mb-4 mb-md-0">
+          <div className="position-relative d-inline-block">
+            <img
+              src={require('../assets/Raj Gara002.JPG')}
+              alt="Rajkumar Gara"
+              className="img-fluid shadow-lg"
+              style={{ 
+                width: '220px', 
+                height: '220px', 
+                objectFit: 'cover',
+                objectPosition: 'center 20%',
+                borderRadius: '20px',
+                border: '4px solid #0d6efd'
+              }}
+            />
+            <div 
+              className="position-absolute top-0 start-0 w-100 h-100"
+              style={{
+                background: 'linear-gradient(45deg, rgba(13, 110, 253, 0.1), rgba(102, 126, 234, 0.1))',
+                borderRadius: '20px',
+                pointerEvents: 'none'
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="col-12 col-md-8">
+          <h1 className="display-5 fw-bold text-primary mb-2">Rajkumar Gara</h1>
+          <h2 className="h4 text-dark mb-3"><span ref={typedRef}></span></h2>
+          <p className="lead text-dark mb-4">
+            Passionate embedded systems engineer with expertise in IoT development,
+            battery management systems, and real-time applications. Currently pursuing
+            advanced studies while contributing to cutting-edge technology solutions.
+          </p>
+          <div className="d-flex flex-wrap gap-2 justify-content-start">
+            <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">
+              <FaEnvelope className="me-1" /> Email
+            </a>
+            <a href="tel:+12604101373" className="btn btn-outline-primary">
+              <FaPhone className="me-1" /> Phone
+            </a>
+            <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
+              <FaGithub className="me-1" /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
+              <FaLinkedin className="me-1" /> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
