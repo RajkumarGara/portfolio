@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 import Typed from 'typed.js';
 
@@ -57,9 +57,8 @@ function Header() {
           <h1 className="display-5 fw-bold text-primary mb-2">Rajkumar Gara</h1>
           <h2 className="h4 text-dark mb-3"><span ref={typedRef}></span></h2>
           <p className="lead text-dark mb-4">
-            Passionate embedded systems engineer with expertise in IoT development,
-            battery management systems, and real-time applications. Currently pursuing
-            advanced studies while contributing to cutting-edge technology solutions.
+            Passionate embedded software engineer with expertise in battery management systems, IoT development, and real-time applications.
+            Currently pursuing advanced studies while contributing to cutting-edge technology solutions.
           </p>
           <div className="d-flex flex-wrap gap-2 justify-content-start">
             <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">

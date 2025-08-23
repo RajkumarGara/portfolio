@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGraduationCap, FaUniversity, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 function EducationSection() {
@@ -8,7 +7,7 @@ function EducationSection() {
       university: "Purdue University",
       location: "Fort Wayne, Indiana, USA",
       period: "2022 - 2024",
-      gpa: "3.8/4.0",
+      gpa: "4.0/4.0",
       coursework: [
         "Advanced Embedded Systems",
         "Machine Learning Applications",
@@ -27,7 +26,7 @@ function EducationSection() {
       university: "JNTU Hyderabad",
       location: "Hyderabad, India",
       period: "2015 - 2019",
-      gpa: "7.8/10.0",
+      gpa: "9.2/10.0",
       coursework: [
         "Embedded Systems Design",
         "Digital Electronics",
