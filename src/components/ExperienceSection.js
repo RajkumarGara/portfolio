@@ -1,12 +1,21 @@
-import React from 'react';
 import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
 
 function ExperienceSection() {
   const experiences = [
     {
+      title: "Medical Informatics Engineering | Software Developer",
+      company: "Fort Wayne, US",
+      period: "April 2024 - Present",
+      description: [
+        "WebChart Software development for healthcare applications.",
+        "Research and development of new features, fixing bugs, and improving user experience."
+      ],
+      technologies: ["SQL", "JavaScript", "HTML", "CSS", "C"]
+    },
+    {
       title: "Medical Informatics Engineering | Development Intern",
       company: "Fort Wayne, US",
-      period: "Oct 2023 - Present",
+      period: "Oct 2023 - March 2024",
       description: [
         "Developed three projects: RemoteSerialPico, node-red-bridge, and homebridge-tcp-smarthome, for integrating digital lighting and window shading systems with Apple HomeKit and Nodered-UI for enhanced control on iOS and Android devices.",
         "Implemented the TCP/IP protocol for communication between Raspberry Pi and Pico-W in this IoT project."
@@ -34,13 +43,13 @@ function ExperienceSection() {
       technologies: ["Data Science", "Python", "Statistical Analysis", "LaTeX", "Research"]
     },
     {
-      title: "R&D Engineer",
-      company: "Medha Servo Drives | India",
+      title: "Medha Servo Drives | R&D Engineer",
+      company: "Hyderabad, India",
       period: "June 2019 - July 2022",
       description: [
         "Highly skilled in embedded C coding (bare metal) with a strong knowledge in coding TI, ARM Cortex R5 and NXP controllers for On-board Diagnostics, Vehicle Control Unit, and Battery Management System.",
         "Proficient in understanding datasheets and writing communication protocols (CAN, J1939, SPI, SCI, GSM, GPS, ISO-SPI) working with real-time projects.",
-        "Rigorous working experience with the controllers TMS570LC4357, LTC6812, MC9S12XDP512, TMS320F28375S on Code Composer Studio, Freescale CodeWarrior, Halcogen, MATLAB Simulink."
+        "Rigorous working experience with the controllers TMS570LC4357, LTC6812, MC9S12XDP512, TMS320F28375S on Code Composer Studio, Freescale CodeWarrior, Halcogen, MATLAB Simulink, Eclipse."
       ],
       technologies: ["Embedded C", "ARM Cortex", "CAN Protocol", "Battery Management", "Real-time Systems"]
     }

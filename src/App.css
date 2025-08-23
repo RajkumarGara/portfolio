@@ -112,10 +112,6 @@ section.visible {
   50% { transform: translateY(-10px); }
 }
 
-.floating {
-  animation: float 3s ease-in-out infinite;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar { 
   width: 8px; 
@@ -199,51 +195,6 @@ section.visible {
 .card {
   border-radius: 12px;
   transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-}
-
-.card-title {
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-/* Badge styling */
-.badge {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-/* List styling */
-.list-group-item {
-  border: none;
-  padding: 0.5rem 0;
-  font-size: 0.9rem;
-}
-
-/* Better button spacing */
-.btn {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-}
-
-/* Contact buttons styling */
-.d-flex.gap-2 .btn {
-  min-width: 100px;
-  text-align: center;
-}
-
-/* Card hierarchy and consistency */
-.card {
-  border-radius: 12px;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
 }
 
 .card-title {
@@ -339,44 +290,6 @@ section.visible {
   }
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  main {
-    padding-top: 60px;
-  }
-  
-  .navbar {
-    min-height: 56px;
-  }
-  
-  .navbar-nav .nav-link {
-    padding: 8px 16px;
-    text-align: center;
-  }
-  
-  /* Contact buttons on mobile */
-  .d-flex.gap-2 {
-    justify-content: center !important;
-  }
-  
-  .d-flex.gap-2 .btn {
-    min-width: 80px;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  /* Improve text readability on mobile */
-  .lead {
-    font-size: 1.1rem;
-  }
-  
-  /* Responsive image sizing */
-  .rounded-circle {
-    max-width: 150px;
-    max-height: 150px;
-  }
-}
-
 @media (max-width: 480px) {
   main {
     padding-top: 80px;
@@ -420,10 +333,6 @@ section.visible {
     scroll-behavior: auto !important;
   }
   
-  .floating {
-    animation: none;
-  }
-  
   section {
     opacity: 1;
     transform: none;
@@ -441,4 +350,3 @@ section.visible {
     background-color: #0056b3 !important;
   }
 }
-::-webkit-scrollbar-thumb:hover { background: var(--gradient-secondary); }

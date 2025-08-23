@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaTrophy, FaCertificate, FaAward, FaCode, FaChalkboardTeacher, FaProjectDiagram } from 'react-icons/fa';
 
 function AccomplishmentsSection() {
@@ -110,7 +109,7 @@ function AccomplishmentsSection() {
           <div className="card-body">
             <h3 className="card-title text-center mb-3 text-primary">Career Highlights</h3>
             <div className="row">
-              {[{ value: "3+", label: "Years Experience", icon: <FaCode /> },{ value: "5+", label: "Major Projects", icon: <FaProjectDiagram /> },{ value: "Multiple", label: "Platforms", icon: <FaTrophy /> },{ value: "Teaching", label: "Experience", icon: <FaChalkboardTeacher /> }].map((stat, index) => (
+              {[{ value: "4+", label: "Years Experience", icon: <FaCode /> },{ value: "5+", label: "Major Projects", icon: <FaProjectDiagram /> },{ value: "Multiple", label: "Platforms", icon: <FaTrophy /> },{ value: "Teaching", label: "Experience", icon: <FaChalkboardTeacher /> }].map((stat, index) => (
                 <div key={index} className="col-12 col-md-6 col-lg-3 mb-2">
                   <div className="card bg-light text-dark h-100 text-center border-0 shadow-sm">
                     <div className="card-body">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 function Footer() {
