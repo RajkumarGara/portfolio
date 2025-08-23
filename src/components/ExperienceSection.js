@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
 
 function ExperienceSection() {
@@ -47,121 +46,40 @@ function ExperienceSection() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <div className="glass-card">
-      <motion.h2 
-        className="section-heading"
-        initial={{ y: -30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Professional Experience
-      </motion.h2>
-      
-      <motion.div 
-        className="timeline"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {experiences.map((exp, index) => (
-          <motion.div 
-            key={index}
-            className="timeline-item"
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
-                <h3 style={{ color: 'white', fontSize: '1.4rem', marginBottom: '0.5rem' }}>
-                  {exp.title}
-                </h3>
-                
-                <div style={{ 
-                  display: 'flex', 
-                  flexWrap: 'wrap', 
-                  gap: '1rem', 
-                  marginBottom: '1rem',
-                  fontSize: '0.9rem',
-                  color: 'rgba(255, 255, 255, 0.8)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaBriefcase />
-                    <span>{exp.company}</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCalendarAlt />
-                    <span>{exp.period}</span>
+    <div className="container-fluid bg-light py-4">
+      <div className="container">
+        <div className="card bg-white text-dark mb-4 shadow-sm">
+          <div className="card-body">
+            <h2 className="card-title text-center mb-3 text-primary">Professional Experience</h2>
+            <div className="row">
+              {experiences.map((exp, index) => (
+                <div key={index} className="col-12 mb-3">
+                  <div className="card bg-white text-dark h-100 border-0 shadow-sm border-start border-4 border-success">
+                    <div className="card-body">
+                      <h3 className="h5 mb-2 text-primary">{exp.title}</h3>
+                      <div className="mb-2">
+                        <span className="me-3"><FaBriefcase className="me-1 text-primary" />{exp.company}</span>
+                        <span><FaCalendarAlt className="me-1 text-primary" />{exp.period}</span>
+                      </div>
+                      <ul className="list-group list-group-flush mb-2">
+                        {exp.description.map((desc, i) => (
+                          <li key={i} className="list-group-item bg-white text-dark">{desc}</li>
+                        ))}
+                      </ul>
+                      <div className="d-flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, i) => (
+                          <span key={i} className="badge bg-primary">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div style={{ marginBottom: '1.5rem' }}>
-                  {exp.description.map((desc, i) => (
-                    <motion.p 
-                      key={i}
-                      style={{ 
-                        color: 'rgba(255, 255, 255, 0.9)', 
-                        marginBottom: '0.8rem',
-                        lineHeight: '1.6'
-                      }}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
-                    >
-                      • {desc}
-                    </motion.p>
-                  ))}
-                </div>
-
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {exp.technologies.map((tech, i) => (
-                    <motion.span
-                      key={i}
-                      className="tech-tag"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ delay: 0.4 + (i * 0.05), duration: 0.3 }}
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
+              ))}
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

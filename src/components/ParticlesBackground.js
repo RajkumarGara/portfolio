@@ -26,7 +26,11 @@ function ParticlesBackground() {
 
     const initParticles = () => {
       particles = [];
-      for (let i = 0; i < 100; i++) {
+      // Reduce particle count on mobile for better performance
+      const isMobile = window.innerWidth <= 768;
+      const particleCount = isMobile ? 30 : 100;
+      
+      for (let i = 0; i < particleCount; i++) {
         particles.push(createParticle());
       }
     };
@@ -50,6 +54,8 @@ function ParticlesBackground() {
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      const isMobile = window.innerWidth <= 768;
+      
       particles.forEach(particle => {
         // Draw particle
         ctx.beginPath();
@@ -57,17 +63,18 @@ function ParticlesBackground() {
         ctx.fillStyle = `hsla(${particle.hue}, 70%, 60%, ${particle.opacity})`;
         ctx.fill();
 
-        // Draw connections
+        // Draw connections (reduce connection distance on mobile for better performance)
+        const connectionDistance = isMobile ? 60 : 100;
         particles.forEach(otherParticle => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < connectionDistance) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `hsla(${particle.hue}, 70%, 60%, ${0.1 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `hsla(${particle.hue}, 70%, 60%, ${0.1 * (1 - distance / connectionDistance)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
