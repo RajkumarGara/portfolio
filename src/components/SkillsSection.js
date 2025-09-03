@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaCode, FaTools, FaMicrochip, FaNetworkWired, FaBrain } from 'react-icons/fa';
 
 function SkillsSection() {

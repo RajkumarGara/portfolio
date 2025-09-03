@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.5a3c9830.css",
-    "main.js": "/portfolio/static/js/main.5f5e4afa.js",
+    "main.css": "/portfolio/static/css/main.cc7620ff.css",
+    "main.js": "/portfolio/static/js/main.02c2982e.js",
     "static/media/Raj Gara002.JPG": "/portfolio/static/media/Raj Gara002.8611ce4ca3bded8f548d.JPG",
     "index.html": "/portfolio/index.html",
-    "main.5a3c9830.css.map": "/portfolio/static/css/main.5a3c9830.css.map",
-    "main.5f5e4afa.js.map": "/portfolio/static/js/main.5f5e4afa.js.map"
+    "main.cc7620ff.css.map": "/portfolio/static/css/main.cc7620ff.css.map",
+    "main.02c2982e.js.map": "/portfolio/static/js/main.02c2982e.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a3c9830.css",
-    "static/js/main.5f5e4afa.js"
+    "static/css/main.cc7620ff.css",
+    "static/js/main.02c2982e.js"
   ]
 }
