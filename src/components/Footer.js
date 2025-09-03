@@ -1,4 +1,4 @@
-import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,15 +8,20 @@ function Footer() {
       <div className="container">
         <div className="row justify-content-center mb-3">
           <div className="col-auto">
-            <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mx-2">
-              <FaGithub className="me-2" /> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mx-2">
-              <FaLinkedin className="me-2" /> LinkedIn
-            </a>
-            <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary mx-2">
-              <FaEnvelope className="me-2" /> Email
-            </a>
+            <div className="d-flex flex-wrap gap-3 justify-content-center">
+              <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">
+                <FaEnvelope className="me-1" /> Email
+              </a>
+              <a href="tel:+12604101373" className="btn btn-outline-primary">
+                <FaPhone className="me-1" /> Phone
+              </a>
+              <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
+                <FaGithub className="me-1" /> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
+                <FaLinkedin className="me-1" /> LinkedIn
+              </a>
+            </div>
           </div>
         </div>
         <div className="row justify-content-center mb-3">

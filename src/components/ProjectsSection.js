@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt, FaGithub, FaBolt, FaTrain } from 'react-icons/fa';
+import { FaBolt, FaTrain } from 'react-icons/fa';
 
 function ProjectsSection() {
   const projects = [

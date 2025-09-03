@@ -3,10 +3,10 @@ import { FaGraduationCap, FaUniversity, FaCalendarAlt, FaMapMarkerAlt } from 're
 function EducationSection() {
   const education = [
     {
-      degree: "Master of Science in Computer Engineering",
+      degree: "Master of Science - Computer Science",
       university: "Purdue University",
-      location: "Fort Wayne, Indiana, USA",
-      period: "2022 - 2024",
+      location: "Fort Wayne, IN, USA",
+      period: "2022 - 2023",
       gpa: "4.0/4.0",
       coursework: [
         "Advanced Embedded Systems",
@@ -22,17 +22,17 @@ function EducationSection() {
       ]
     },
     {
-      degree: "Bachelor of Technology in Electronics & Communication",
-      university: "JNTU Hyderabad",
-      location: "Hyderabad, India",
+      degree: "Bachelor of Technology - Electronics & Communication Engineering",
+      university: "GMR Institute of Technology",
+      location: "Rajam, India",
       period: "2015 - 2019",
       gpa: "9.2/10.0",
       coursework: [
         "Embedded Systems Design",
         "Digital Electronics",
-        "Communication Systems",
         "Microprocessor Systems",
-        "Control Systems"
+        "Control Systems",
+        "Communication Systems"
       ],
       achievements: [
         "Graduated with First Class",

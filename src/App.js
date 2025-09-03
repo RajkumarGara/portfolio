@@ -42,23 +42,19 @@ function App() {
     // Smooth scrolling for navigation links
     const handleSmoothScroll = (e) => {
       e.preventDefault();
+      e.stopPropagation();
+      
       const targetId = e.target.getAttribute('href');
       const targetElement = document.querySelector(targetId);
+      
       if (targetElement) {
-        // Add offset for navbar height
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const offset = navbarHeight + 20; // Extra 20px padding
-        const elementPosition = targetElement.offsetTop - offset;
+        // Immediately reset styles
+        const activeElement = e.target;
+        activeElement.blur();
+        activeElement.style.backgroundColor = 'transparent';
+        activeElement.style.transform = 'scale(1)';
         
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
-        
-        // Remove focus from the clicked link to prevent stuck active state
-        e.target.blur();
-        
-        // Close mobile menu after clicking (simple approach)
+        // Close mobile menu first
         const navbarCollapse = document.querySelector('#navbarNav');
         const navbarToggler = document.querySelector('.navbar-toggler');
         if (navbarCollapse && navbarCollapse.classList.contains('show')) {
@@ -68,6 +64,21 @@ function App() {
             navbarToggler.classList.add('collapsed');
           }
         }
+        
+        // Calculate scroll position
+        setTimeout(() => {
+          const navbar = document.querySelector('.navbar');
+          const navbarHeight = navbar ? navbar.offsetHeight : 0;
+          const offset = navbarHeight + 10;
+          
+          // Scroll directly to the section, not looking for container-fluid
+          const elementPosition = targetElement.offsetTop - offset;
+          
+          window.scrollTo({
+            top: Math.max(0, elementPosition),
+            behavior: 'smooth'
+          });
+        }, 150);
       }
     };
 
@@ -96,7 +107,7 @@ function App() {
     <div className="app-container bg-light">
       <ParticlesBackground />
       {/* Bootstrap Navigation Bar */}
-      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style={{ backgroundColor: '#0d6efd', backdropFilter: 'blur(10px)' }}>
+      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style={{ backgroundColor: '#0d6efd', backdropFilter: 'blur(10px)' }} role="navigation" aria-label="Main navigation">
         <div className="container-fluid px-3">
           <button 
             className="navbar-toggler border-0 shadow-none" 
@@ -105,26 +116,46 @@ function App() {
             data-bs-target="#navbarNav" 
             aria-controls="navbarNav" 
             aria-expanded="false" 
-            aria-label="Toggle navigation"
+            aria-label="Toggle navigation menu"
             style={{ padding: '6px 10px', fontSize: '1.1rem' }}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto">
+            <ul className="navbar-nav mx-auto" role="menubar">
               {navLinks.map((link) => (
-                <li className="nav-item" key={link.name}>
+                <li className="nav-item" key={link.name} role="none">
                   <a 
-                    className="nav-link text-white fw-medium px-3 py-2 rounded-pill mx-1" 
+                    className="nav-link text-white fw-medium px-2 py-1 rounded-pill mx-1" 
                     href={link.href}
-                    style={{ transition: 'all 0.3s ease' }}
+                    role="menuitem"
+                    style={{ 
+                      transition: 'all 0.2s ease',
+                      WebkitTapHighlightColor: 'transparent',
+                      outline: 'none',
+                      userSelect: 'none',
+                      touchAction: 'manipulation'
+                    }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                      e.target.style.transform = 'translateY(-1px)';
+                      if (!('ontouchstart' in window)) {
+                        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+                        e.target.style.transform = 'translateY(-1px)';
+                      }
                     }}
                     onMouseLeave={(e) => {
                       e.target.style.backgroundColor = 'transparent';
                       e.target.style.transform = 'translateY(0)';
+                    }}
+                    onTouchStart={(e) => {
+                      e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                      e.target.style.transform = 'scale(0.98)';
+                    }}
+                    onTouchEnd={(e) => {
+                      setTimeout(() => {
+                        e.target.style.backgroundColor = 'transparent';
+                        e.target.style.transform = 'scale(1)';
+                        e.target.blur();
+                      }, 150);
                     }}
                   >
                     {link.name}

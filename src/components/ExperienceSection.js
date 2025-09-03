@@ -1,4 +1,4 @@
-import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 
 function ExperienceSection() {
   const experiences = [
@@ -7,10 +7,11 @@ function ExperienceSection() {
       company: "Fort Wayne, US",
       period: "April 2024 - Present",
       description: [
-        "WebChart Software development for healthcare applications.",
-        "Research and development of new features, fixing bugs, and improving user experience."
+        "Developed system reports using optimized SQL queries to meet client-specific healthcare requirements.",
+        "Analysed and resolved defects in large-scale C, JavaScript, and HTML codebases to improve application stability and performance.",
+        "Collaborated with the AI team to enhance Ozwell AI, enabling intelligent voice/text-driven actions within WebChart (chatbot-style automation)."
       ],
-      technologies: ["SQL", "JavaScript", "HTML", "CSS", "C"]
+      technologies: ["SQL", "C", "JavaScript", "HTML", "AI"]
     },
     {
       title: "Medical Informatics Engineering | Development Intern",
@@ -47,7 +48,7 @@ function ExperienceSection() {
       company: "Hyderabad, India",
       period: "June 2019 - July 2022",
       description: [
-        "Highly skilled in embedded C coding (bare metal) with a strong knowledge in coding TI, ARM Cortex R5 and NXP controllers for On-board Diagnostics, Vehicle Control Unit, and Battery Management System.",
+        "Skilled in embedded C coding (bare metal) with a strong knowledge in coding TI, ARM Cortex R5 and NXP controllers for On-board Diagnostics, Vehicle Control Unit, and Battery Management System.",
         "Proficient in understanding datasheets and writing communication protocols (CAN, J1939, SPI, SCI, GSM, GPS, ISO-SPI) working with real-time projects.",
         "Rigorous working experience with the controllers TMS570LC4357, LTC6812, MC9S12XDP512, TMS320F28375S on Code Composer Studio, Freescale CodeWarrior, Halcogen, MATLAB Simulink, Eclipse."
       ],

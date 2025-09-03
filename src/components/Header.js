@@ -26,14 +26,14 @@ function Header() {
   }, []);
 
   return (
-    <div className="container py-5">
+    <div className="container py-3 py-md-5">
       <div className="row align-items-center">
-        <div className="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <div className="col-12 col-md-4 text-center mb-3 mb-md-0">
           <div className="position-relative d-inline-block">
             <img
               src={require('../assets/Raj Gara002.JPG')}
               alt="Rajkumar Gara"
-              className="img-fluid shadow-lg"
+              className="img-fluid shadow-lg header-image"
               style={{ 
                 width: '220px', 
                 height: '220px', 
@@ -54,13 +54,13 @@ function Header() {
           </div>
         </div>
         <div className="col-12 col-md-8">
-          <h1 className="display-5 fw-bold text-primary mb-2">Rajkumar Gara</h1>
-          <h2 className="h4 text-dark mb-3"><span ref={typedRef}></span></h2>
-          <p className="lead text-dark mb-4">
+          <h1 className="display-5 fw-bold text-primary mb-2 header-text-mobile">Rajkumar Gara</h1>
+          <h2 className="h4 text-dark mb-3 header-text-mobile"><span ref={typedRef}></span></h2>
+          <p className="lead text-dark mb-3 text-justify">
             Passionate embedded software engineer with expertise in battery management systems, IoT development, and real-time applications.
             Currently pursuing advanced studies while contributing to cutting-edge technology solutions.
           </p>
-          <div className="d-flex flex-wrap gap-2 justify-content-start">
+          <div className="d-flex flex-wrap gap-3 justify-content-start header-buttons-desktop">
             <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">
               <FaEnvelope className="me-1" /> Email
             </a>
