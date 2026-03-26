@@ -1,85 +1,115 @@
-import { FaBolt, FaTrain } from 'react-icons/fa';
+import { FaClock, FaBus, FaHome, FaBatteryFull, FaSatelliteDish, FaCar } from 'react-icons/fa';
 
 function ProjectsSection() {
   const projects = [
     {
-      title: "BMS Software Development",
-      subtitle: "India's Fastest Train - Vande Bharat Express",
-      description: "Developed comprehensive Battery Management System software with minimal supervision for India's premier high-speed train. Implemented sophisticated algorithms for battery monitoring and state estimation.",
+      title: "Battery Management System",
+      subtitle: "Vande Bharat Express (India's Fastest Train)",
+      description: "Developed complete BMS firmware on TMS570LC4357 with minimal supervision. Decoded BMS communication protocol including ISO-SPI frames and timing using limited ICD documentation.",
       features: [
-        "Developed BMS software with minimal supervision",
-        "Periodic communication with Cell Monitoring Unit (LTC6812) for getting Cell voltage and temperature",
-        "Developed State of Charge estimation algorithm for 110V, 684Ah Lithium-ion battery pack"
+        "Real-time cell voltage/temperature monitoring via LTC6812 over ISO-SPI",
+        "State of Charge (SoC) estimation algorithm for 110V, 684Ah Li-ion battery pack",
+        "Provided inputs to hardware team based on protocol analysis",
+        "Ensured reliable operation under real-time constraints and fault conditions"
       ],
-      technologies: ["Embedded C", "LTC6812", "Battery Management", "Real-time Systems", "Algorithm Development"],
-      icon: <FaTrain />,
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      technologies: ["Embedded C", "TMS570LC4357", "LTC6812", "ISO-SPI", "SoC Algorithm"],
+      icon: <FaBatteryFull />
     },
     {
-      title: "OBD Software Development",
+      title: "On-Board Diagnostics (OBD)",
       subtitle: "Electric Bus Control System",
-      description: "Comprehensive On-Board Diagnostics software development and maintenance for electric bus systems, including fault detection and vehicle control integration.",
+      description: "Developed and maintained OBD firmware for fault detection and diagnostics across vehicle subsystems. Optimized existing code improving memory usage and data storage efficiency.",
       features: [
-        "Maintenance of On-Board Diagnostics (OBD) software and adding new features",
-        "Status and fault data acquisition from all modules using CAN protocol",
-        "Troubleshooting communication issues using CAN232 tool and resolving issues",
-        "Software design documentation and Vehicle Control Unit integration"
+        "CAN-based data acquisition from multiple control modules",
+        "VCU firmware with CAN communication to DC-DC converters and BMS",
+        "Resolved 32ms CAN timing issues by optimizing to 64ms cycle",
+        "Integration of subsystems within Vehicle Control Unit (VCU)"
       ],
-      technologies: ["CAN Protocol", "OBD", "Embedded Systems", "Vehicle Control", "Diagnostics"],
-      icon: <FaBolt />,
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      technologies: ["Embedded C", "CAN", "J1939", "OBD", "VCU", "ARM Cortex-R5"],
+      icon: <FaBus />
     },
     {
-      title: "IoT Smart Home Integration",
+      title: "Vehicle Remote Monitoring System",
+      subtitle: "Electric Bus - VRMS",
+      description: "Implemented complete vehicle remote monitoring using GSM and GPS protocols for the electric bus project, enabling real-time fleet tracking and diagnostics.",
+      features: [
+        "GSM module integration for remote data transmission",
+        "GPS-based vehicle location tracking",
+        "Real-time parameter monitoring from VCU",
+        "Tuned UART (RS232) communication parameters including baud rate"
+      ],
+      technologies: ["GSM", "GPS", "UART", "RS232", "Embedded C"],
+      icon: <FaSatelliteDish />
+    },
+    {
+      title: "GPS Clock Project",
+      subtitle: "7-Segment LED Display",
+      description: "First embedded project as part of a 4-member team. Contributed to PCB hardware design and developed embedded C code on the MC9S12XDP512CAG microcontroller.",
+      features: [
+        "7-segment LED display driven by GPS time data",
+        "PCB hardware design contribution",
+        "Embedded C development using Freescale CodeWarrior",
+        "MC9S12XDP512CAG microcontroller programming"
+      ],
+      technologies: ["Embedded C", "MC9S12XDP512", "CodeWarrior", "PCB Design", "GPS"],
+      icon: <FaClock />
+    },
+    {
+      title: "Vehicle Control Unit (VCU)",
+      subtitle: "Electric Bus - Software Updates & Maintenance",
+      description: "Developed and maintained VCU firmware for the electric bus, handling communication with all vehicle subsystems and ensuring reliable operation.",
+      features: [
+        "CAN communication integration with DC-DC converters, BMS, and motor controllers",
+        "Transmission of speed parameters from VCU to dashboard via RS485",
+        "Software updates and maintenance for field-deployed units",
+        "Collaborated with MCU and auxiliary teams for subsystem integration"
+      ],
+      technologies: ["Embedded C", "CAN", "RS485", "VCU", "ARM Cortex-R5"],
+      icon: <FaCar />
+    },
+    {
+      title: "IoT Smart Home",
       subtitle: "Apple HomeKit & Node-RED Integration",
-      description: "Developed three innovative projects for smart home automation, integrating lighting and window shading systems with modern IoT platforms.",
+      description: "Built IoT-based embedded systems integrating Raspberry Pi and Pico-W for smart home control with cross-platform device management.",
       features: [
         "RemoteSerialPico - Serial communication bridge for IoT devices",
-        "node-red-bridge - Visual programming interface for home automation",
-        "homebridge-tcp-smarthome - TCP/IP integration with Apple HomeKit",
-        "Enhanced control on iOS and Android devices"
+        "TCP/IP communication between Raspberry Pi and Pico-W",
+        "Node-RED/HomeKit interfaces for lighting and window shading",
+        "Cross-platform control on iOS and Android devices"
       ],
-      technologies: ["IoT", "TCP/IP", "Raspberry Pi", "Apple HomeKit", "Node-RED", "Smart Home"],
-      icon: <FaBolt />,
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      technologies: ["IoT", "TCP/IP", "Raspberry Pi", "Pico-W", "Node-RED", "HomeKit"],
+      icon: <FaHome />
     }
   ];
 
   return (
-    <div className="container-fluid bg-light py-4">
+    <div className="section-container">
       <div className="container">
-        <div className="card bg-white text-dark mb-4 shadow-sm">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-3 text-primary">Featured Projects</h2>
-            <div className="row">
-              {projects.map((project, index) => {
-                const gradientClass = `project-gradient-${(index % 3) + 1}`;
-                return (
-                  <div key={index} className="col-md-6 col-lg-4 mb-3">
-                    <div className={`card h-100 ${gradientClass} border-0 shadow-sm`}>
-                      <div className="card-body">
-                        <div className="d-flex align-items-center mb-3">
-                          <span style={{ fontSize: '2rem', marginRight: '1rem', color: 'rgba(255,255,255,0.9)' }}>{project.icon}</span>
-                          <h3 className="h5 mb-0 text-white">{project.title}</h3>
-                        </div>
-                        <p className="mb-2 text-white"><strong>{project.subtitle}</strong></p>
-                        <p className="mb-2 text-white opacity-90">{project.description}</p>
-                        <ul className="list-group list-group-flush mb-2">
-                          {project.features.map((feature, i) => (
-                            <li key={i} className="list-group-item bg-transparent text-white opacity-85 border-white border-opacity-25">{feature}</li>
-                          ))}
-                        </ul>
-                        <div className="d-flex flex-wrap gap-2">
-                          {project.technologies.map((tech, i) => (
-                            <span key={i} className="badge bg-light text-dark">{tech}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+        <div className="section-card">
+          <h2 className="section-title">Featured Projects</h2>
+          <div className="row g-3">
+            {projects.map((project, index) => (
+              <div key={index} className="col-md-6 col-lg-4">
+                <div className="project-card">
+                  <div className="d-flex align-items-center mb-3">
+                    <span style={{ fontSize: '1.5rem', marginRight: '0.75rem', color: 'var(--accent)' }}>{project.icon}</span>
+                    <h3 className="h6 mb-0" style={{ color: 'var(--text-primary)' }}>{project.title}</h3>
                   </div>
-                );
-              })}
-            </div>
+                  <p className="mono mb-2" style={{ color: 'var(--accent)', fontSize: '0.78rem' }}>{project.subtitle}</p>
+                  <p className="mb-3" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: '1.6' }}>{project.description}</p>
+                  <div className="mb-3">
+                    {project.features.map((feature, i) => (
+                      <div key={i} className="exp-list-item" style={{ fontSize: '0.82rem' }}>{feature}</div>
+                    ))}
+                  </div>
+                  <div className="d-flex flex-wrap gap-1">
+                    {project.technologies.map((tech, i) => (
+                      <span key={i} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

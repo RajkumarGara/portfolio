@@ -9,10 +9,10 @@ function Header() {
     const typed = new Typed(typedRef.current, {
       strings: [
         'Embedded Software Engineer',
-        'IoT Developer',
-        'Software Engineer',
         'Firmware Developer',
-        'BMS Engineer'
+        'Real-Time Systems Developer',
+        'IoT Developer',
+        'Software Developer'
       ],
       typeSpeed: 50,
       backSpeed: 30,
@@ -33,45 +33,41 @@ function Header() {
             <img
               src={require('../assets/Raj Gara002.JPG')}
               alt="Rajkumar Gara"
-              className="img-fluid shadow-lg header-image"
-              style={{ 
-                width: '220px', 
-                height: '220px', 
+              className="img-fluid header-image"
+              style={{
+                width: '280px',
+                height: '280px',
                 objectFit: 'cover',
                 objectPosition: 'center 20%',
                 borderRadius: '20px',
-                border: '4px solid #0d6efd'
+                border: '2px solid var(--accent)',
+                boxShadow: '0 10px 30px -15px rgba(2, 12, 27, 0.7)'
               }}
             />
-            <div 
-              className="position-absolute top-0 start-0 w-100 h-100"
-              style={{
-                background: 'linear-gradient(45deg, rgba(13, 110, 253, 0.1), rgba(102, 126, 234, 0.1))',
-                borderRadius: '20px',
-                pointerEvents: 'none'
-              }}
-            ></div>
           </div>
         </div>
         <div className="col-12 col-md-8">
-          <h1 className="display-5 fw-bold text-primary mb-2 header-text-mobile">Rajkumar Gara</h1>
-          <h2 className="h4 text-dark mb-3 header-text-mobile"><span ref={typedRef}></span></h2>
-          <p className="lead text-dark mb-3 text-justify">
-            Passionate embedded software engineer with expertise in battery management systems, IoT development, and real-time applications.
-            Currently pursuing advanced studies while contributing to cutting-edge technology solutions.
+          <h1 className="display-5 fw-bold mb-2 header-text-mobile" style={{ color: 'var(--text-primary)' }}>Rajkumar Gara</h1>
+          <h2 className="h4 mb-3 header-text-mobile mono" style={{ color: 'var(--accent)' }}><span ref={typedRef}></span></h2>
+          <p className="lead mb-3 text-justify" style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.8' }}>
+            Embedded Software Engineer with 5+ years of experience, including 3+ years in bare-metal C development
+            on ARM-based microcontrollers building real-time systems (BMS, VCU, OBD) and 2 years in software
+            development. Strong understanding of low-level system design, communication protocols (CAN, SPI, I2C,
+            UART), and hardware-software interaction. Currently expanding expertise in operating systems, Linux
+            systems programming, and device-level software.
           </p>
           <div className="d-flex flex-wrap gap-3 justify-content-start header-buttons-desktop">
-            <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">
-              <FaEnvelope className="me-1" /> Email
+            <a href="mailto:rajkumar.gara3@gmail.com" className="btn-accent">
+              <FaEnvelope /> Email
             </a>
-            <a href="tel:+12604101373" className="btn btn-outline-primary">
-              <FaPhone className="me-1" /> Phone
+            <a href="tel:+12604101373" className="btn-accent">
+              <FaPhone /> Phone
             </a>
-            <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
-              <FaGithub className="me-1" /> GitHub
+            <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn-accent">
+              <FaGithub /> GitHub
             </a>
-            <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
-              <FaLinkedin className="me-1" /> LinkedIn
+            <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn-accent">
+              <FaLinkedin /> LinkedIn
             </a>
           </div>
         </div>

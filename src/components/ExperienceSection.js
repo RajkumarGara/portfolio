@@ -1,92 +1,86 @@
-import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 function ExperienceSection() {
   const experiences = [
     {
-      title: "Medical Informatics Engineering | Software Developer",
-      company: "Fort Wayne, US",
+      title: "Software Developer",
+      company: "Medical Informatics Engineering",
+      location: "Fort Wayne, US",
       period: "April 2024 - Present",
       description: [
-        "Developed system reports using optimized SQL queries to meet client-specific healthcare requirements.",
-        "Analysed and resolved defects in large-scale C, JavaScript, and HTML codebases to improve application stability and performance.",
-        "Collaborated with the AI team to enhance Ozwell AI, enabling intelligent voice/text-driven actions within WebChart (chatbot-style automation)."
+        "Debug and maintain large-scale C-based applications, improving system stability and performance",
+        "Develop backend logic and optimize SQL queries for performance-critical workflows",
+        "Collaborate on system-level features including AI-driven automation (Ozwell AI)"
       ],
-      technologies: ["SQL", "C", "JavaScript", "HTML", "AI"]
+      technologies: ["C", "SQL", "JavaScript", "AI"]
     },
     {
-      title: "Medical Informatics Engineering | Development Intern",
-      company: "Fort Wayne, US",
+      title: "Development Intern",
+      company: "Medical Informatics Engineering",
+      location: "Fort Wayne, US",
       period: "Oct 2023 - March 2024",
       description: [
-        "Developed three projects: RemoteSerialPico, node-red-bridge, and homebridge-tcp-smarthome, for integrating digital lighting and window shading systems with Apple HomeKit and Nodered-UI for enhanced control on iOS and Android devices.",
-        "Implemented the TCP/IP protocol for communication between Raspberry Pi and Pico-W in this IoT project."
+        "Built IoT-based embedded systems integrating Raspberry Pi and Pico-W for smart home control (lighting/window shading)",
+        "Implemented TCP/IP communication with Node-RED/HomeKit interfaces for cross-platform device control"
       ],
-      technologies: ["IoT", "TCP/IP", "Raspberry Pi", "Apple HomeKit", "Node-RED"]
+      technologies: ["IoT", "TCP/IP", "Raspberry Pi", "Pico-W", "Node-RED", "HomeKit"]
     },
     {
-      title: "Teaching Assistant",
-      company: "Purdue University",
-      period: "Aug 2023 - Dec 2023",
-      description: [
-        "Worked under professor Zesheng Chen for Applications of Deep learning course.",
-        "Evaluated and provided feedback on assignments, fostering student growth and understanding."
-      ],
-      technologies: ["Deep Learning", "Python", "Teaching", "Machine Learning"]
-    },
-    {
-      title: "Jr. Data Scientist",
-      company: "Purdue University",
-      period: "Jan 2023 - May 2023",
-      description: [
-        "Analysed datasets, developed, and tested predictive models using statistical and data analysis tools.",
-        "Drafted final research paper in latex using overleaf in collaboration with Alessandro Selvitella."
-      ],
-      technologies: ["Data Science", "Python", "Statistical Analysis", "LaTeX", "Research"]
-    },
-    {
-      title: "Medha Servo Drives | R&D Engineer",
-      company: "Hyderabad, India",
+      title: "R&D Engineer (Embedded Systems)",
+      company: "Medha Servo Drives",
+      location: "Hyderabad, India",
       period: "June 2019 - July 2022",
       description: [
-        "Skilled in embedded C coding (bare metal) with a strong knowledge in coding TI, ARM Cortex R5 and NXP controllers for On-board Diagnostics, Vehicle Control Unit, and Battery Management System.",
-        "Proficient in understanding datasheets and writing communication protocols (CAN, J1939, SPI, SCI, GSM, GPS, ISO-SPI) working with real-time projects.",
-        "Rigorous working experience with the controllers TMS570LC4357, LTC6812, MC9S12XDP512, TMS320F28375S on Code Composer Studio, Freescale CodeWarrior, Halcogen, MATLAB Simulink, Eclipse."
+        "Designed and developed embedded C firmware (bare-metal) for automotive and railway systems on ARM Cortex-R5, TI, and NXP microcontrollers",
+        "Implemented interrupt-driven communication and real-time data handling using CAN, SPI, UART (SCI), and I2C protocols",
+        "Debugged hardware-software issues using oscilloscope, CAN tools, and JTAG, improving system reliability",
+        "Worked closely with hardware teams, interpreting datasheets and register-level configurations",
+        "Implemented Battery Management System (BMS) firmware on TMS570LC4357 with minimal supervision",
+        "Developed Vehicle Remote Monitoring System (VRMS) using GSM and GPS protocols for electric bus",
+        "Resolved CAN communication timing issues by optimizing cycle from 32 ms to 64 ms, eliminating frame drops",
+        "Contributed to Combined Charging System (CCS) protocol development for charging stations",
+        "Performed on-site vehicle performance analysis and parameter tuning"
       ],
-      technologies: ["Embedded C", "ARM Cortex", "CAN Protocol", "Battery Management", "Real-time Systems"]
+      technologies: ["Embedded C", "ARM Cortex-R5", "CAN", "J1939", "SPI", "UART", "I2C", "ISO-SPI", "TMS570LC4357", "LTC6812", "GSM", "GPS"]
     }
   ];
 
   return (
-    <div className="container-fluid bg-light py-4">
+    <div className="section-container">
       <div className="container">
-        <div className="card bg-white text-dark mb-4 shadow-sm">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-3 text-primary">Professional Experience</h2>
-            <div className="row">
-              {experiences.map((exp, index) => (
-                <div key={index} className="col-12 mb-3">
-                  <div className="card bg-white text-dark h-100 border-0 shadow-sm border-start border-4 border-success">
-                    <div className="card-body">
-                      <h3 className="h5 mb-2 text-primary">{exp.title}</h3>
-                      <div className="mb-2">
-                        <span className="me-3"><FaBriefcase className="me-1 text-primary" />{exp.company}</span>
-                        <span><FaCalendarAlt className="me-1 text-primary" />{exp.period}</span>
+        <div className="section-card">
+          <h2 className="section-title">Professional Experience</h2>
+          <div className="timeline">
+            {experiences.map((exp, index) => (
+              <div key={index} className="timeline-item">
+                <div className="dark-card p-3 p-md-4">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-2">
+                    <div>
+                      <h3 className="h5 mb-1" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                      <p className="mb-1 mono" style={{ color: 'var(--accent)', fontSize: '0.9rem' }}>{exp.company}</p>
+                    </div>
+                    <div className="text-md-end mt-1 mt-md-0">
+                      <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                        <FaMapMarkerAlt className="me-1" style={{ color: 'var(--accent)' }} />{exp.location}
                       </div>
-                      <ul className="list-group list-group-flush mb-2">
-                        {exp.description.map((desc, i) => (
-                          <li key={i} className="list-group-item bg-white text-dark">{desc}</li>
-                        ))}
-                      </ul>
-                      <div className="d-flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, i) => (
-                          <span key={i} className="badge bg-primary">{tech}</span>
-                        ))}
+                      <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                        <FaCalendarAlt className="me-1" style={{ color: 'var(--accent)' }} />{exp.period}
                       </div>
                     </div>
                   </div>
+                  <div className="mb-3">
+                    {exp.description.map((desc, i) => (
+                      <div key={i} className="exp-list-item">{desc}</div>
+                    ))}
+                  </div>
+                  <div className="d-flex flex-wrap gap-1">
+                    {exp.technologies.map((tech, i) => (
+                      <span key={i} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,126 +1,85 @@
-import { FaTrophy, FaCertificate, FaAward, FaCode, FaChalkboardTeacher, FaProjectDiagram } from 'react-icons/fa';
+import { FaCode, FaMicrochip, FaBatteryFull, FaBus, FaGraduationCap, FaHome } from 'react-icons/fa';
 
 function AccomplishmentsSection() {
   const accomplishments = [
     {
-      category: "Professional Achievements",
-      icon: <FaTrophy />,
-      items: [
-        {
-          title: "Battery Management System for Vande Bharat Express",
-          description: "Successfully developed and deployed BMS software for India's fastest train, contributing to the nation's high-speed rail initiative.",
-          impact: "Critical safety system for high-speed rail transport"
-        },
-        {
-          title: "IoT Smart Home Integration Projects",
-          description: "Developed three innovative projects integrating Apple HomeKit with custom hardware solutions.",
-          impact: "Enhanced home automation capabilities for modern IoT ecosystems"
-        },
-        {
-          title: "Real-time Embedded Systems Expertise",
-          description: "Demonstrated proficiency in developing real-time systems for automotive and transportation sectors.",
-          impact: "Improved vehicle safety and diagnostic capabilities"
-        }
-      ]
+      icon: <FaBatteryFull />,
+      title: "BMS for Vande Bharat Express",
+      description: "Developed and deployed Battery Management System firmware for India's fastest train with minimal supervision.",
+      impact: "Critical safety system for national high-speed rail"
     },
     {
-      category: "Academic Excellence",
-      icon: <FaCertificate />,
-      items: [
-        {
-          title: "Graduate Teaching Assistant",
-          description: "Served as TA for Applications of Deep Learning course under Prof. Zesheng Chen at Purdue University.",
-          impact: "Mentored students in advanced AI/ML concepts"
-        },
-        {
-          title: "Research Collaboration",
-          description: "Co-authored research paper in LaTeX using Overleaf in collaboration with Alessandro Selvitella.",
-          impact: "Contributed to academic research in data science"
-        },
-        {
-          title: "Consistent Academic Performance",
-          description: "Maintained strong GPA throughout graduate studies while working on multiple projects.",
-          impact: "Demonstrated ability to balance academic and practical work"
-        }
-      ]
+      icon: <FaBus />,
+      title: "Electric Bus VCU & VRMS",
+      description: "Developed Vehicle Control Unit firmware and Vehicle Remote Monitoring System for the electric bus project.",
+      impact: "End-to-end vehicle control and remote monitoring"
     },
     {
-      category: "Technical Innovation",
       icon: <FaCode />,
-      items: [
-        {
-          title: "Protocol Implementation Expertise",
-          description: "Implemented complex communication protocols including CAN, J1939, SPI, and TCP/IP for real-world applications.",
-          impact: "Enabled reliable communication in critical systems"
-        },
-        {
-          title: "Cross-platform Development",
-          description: "Successfully worked across multiple controller platforms (TI, ARM, NXP) and development environments.",
-          impact: "Versatile embedded systems development capabilities"
-        },
-        {
-          title: "Algorithm Development",
-          description: "Developed State of Charge estimation algorithms for high-capacity lithium-ion battery packs.",
-          impact: "Improved battery management efficiency and safety"
-        }
-      ]
+      title: "CAN Timing Optimization",
+      description: "Identified and resolved critical CAN frame drops by optimizing the communication cycle from 32 ms to 64 ms.",
+      impact: "Eliminated data loss in real-time communication"
+    },
+    {
+      icon: <FaGraduationCap />,
+      title: "Perfect GPA at Purdue University",
+      description: "Achieved 4.00/4.00 GPA in M.S. Computer Science while working as Teaching Assistant and Research Collaborator.",
+      impact: "Academic excellence alongside practical work"
+    },
+    {
+      icon: <FaMicrochip />,
+      title: "Multi-Platform Firmware Expertise",
+      description: "Developed production firmware across TI (TMS570), NXP (MC9S12), and ARM Cortex-R5 platforms using CCS, CodeWarrior, and Eclipse.",
+      impact: "Versatile embedded development across architectures"
+    },
+    {
+      icon: <FaHome />,
+      title: "IoT Smart Home System",
+      description: "Built cross-platform IoT system integrating Raspberry Pi and Pico-W with Apple HomeKit and Node-RED for smart home automation.",
+      impact: "Full-stack IoT from firmware to user interface"
     }
   ];
 
+  const stats = [
+    { value: "5+", label: "Years Total Experience" },
+    { value: "3+", label: "Years Embedded" },
+    { value: "6+", label: "Major Projects" },
+    { value: "5+", label: "Protocols Implemented" }
+  ];
+
   return (
-    <div className="container-fluid bg-light py-4">
+    <div className="section-container">
       <div className="container">
-        <div className="card bg-white text-dark mb-4 shadow-sm">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-3 text-primary">Key Accomplishments</h2>
-            <div className="row">
-              {accomplishments.map((category, categoryIndex) => (
-                <div key={categoryIndex} className="col-12 mb-3">
-                  <div className="card bg-white text-dark h-100 border-0 shadow-sm border-start border-4 border-warning">
-                    <div className="card-body">
-                      <div className="d-flex align-items-center mb-3">
-                        <span style={{ fontSize: '2rem', marginRight: '1rem', color: '#0d6efd' }}>{category.icon}</span>
-                        <h3 className="h5 mb-0 text-primary">{category.category}</h3>
-                      </div>
-                      <div className="row">
-                        {category.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className="col-md-6 mb-3">
-                            <div className="card bg-light text-dark h-100 border-0 shadow-sm">
-                              <div className="card-body">
-                                <h4 className="h6 mb-2 text-primary">{item.title}</h4>
-                                <p className="mb-2">{item.description}</p>
-                                <div className="badge bg-primary text-wrap" style={{ maxWidth: '100%', whiteSpace: 'normal' }}>
-                                  <FaAward className="me-1" /> Impact: {item.impact}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+        <div className="section-card mb-3">
+          <h2 className="section-title">Key Accomplishments</h2>
+          <div className="row g-3">
+            {accomplishments.map((item, index) => (
+              <div key={index} className="col-md-6">
+                <div className="dark-card p-3 h-100">
+                  <div className="d-flex align-items-start">
+                    <span style={{ fontSize: '1.25rem', marginRight: '0.75rem', color: 'var(--accent)', marginTop: '0.1rem' }}>{item.icon}</span>
+                    <div>
+                      <h4 className="h6 mb-1" style={{ color: 'var(--text-primary)' }}>{item.title}</h4>
+                      <p className="mb-2" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: '1.6' }}>{item.description}</p>
+                      <span className="tech-badge">{item.impact}</span>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* Summary Statistics */}
-        <div className="card bg-white text-dark mt-4 shadow-sm">
-          <div className="card-body">
-            <h3 className="card-title text-center mb-3 text-primary">Career Highlights</h3>
-            <div className="row">
-              {[{ value: "4+", label: "Years Experience", icon: <FaCode /> },{ value: "5+", label: "Major Projects", icon: <FaProjectDiagram /> },{ value: "Multiple", label: "Platforms", icon: <FaTrophy /> },{ value: "Research & Development", label: "Experience", icon: <FaChalkboardTeacher /> }].map((stat, index) => (
-                <div key={index} className="col-12 col-md-6 col-lg-3 mb-2">
-                  <div className="card bg-light text-dark h-100 text-center border-0 shadow-sm">
-                    <div className="card-body">
-                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem', color: '#0d6efd' }}>{stat.icon}</div>
-                      <div className="h5 mb-1 text-primary">{stat.value}</div>
-                      <div>{stat.label}</div>
-                    </div>
-                  </div>
+        <div className="section-card">
+          <h3 className="section-title" style={{ fontSize: '1.3rem' }}>Career Highlights</h3>
+          <div className="row g-3">
+            {stats.map((stat, index) => (
+              <div key={index} className="col-6 col-md-3">
+                <div className="stat-card">
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

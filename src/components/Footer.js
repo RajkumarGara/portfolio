@@ -1,42 +1,39 @@
-import { FaHeart, FaReact, FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMicrochip } from 'react-icons/fa';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-light py-3 mt-3 border-top">
+    <footer className="dark-footer mt-3">
       <div className="container">
         <div className="row justify-content-center mb-3">
           <div className="col-auto">
             <div className="d-flex flex-wrap gap-3 justify-content-center">
-              <a href="mailto:rajkumar.gara3@gmail.com" className="btn btn-outline-primary">
-                <FaEnvelope className="me-1" /> Email
+              <a href="mailto:rajkumar.gara3@gmail.com" className="btn-accent">
+                <FaEnvelope /> Email
               </a>
-              <a href="tel:+12604101373" className="btn btn-outline-primary">
-                <FaPhone className="me-1" /> Phone
+              <a href="tel:+12604101373" className="btn-accent">
+                <FaPhone /> Phone
               </a>
-              <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
-                <FaGithub className="me-1" /> GitHub
+              <a href="https://github.com/RajkumarGara" target="_blank" rel="noopener noreferrer" className="btn-accent">
+                <FaGithub /> GitHub
               </a>
-              <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary">
-                <FaLinkedin className="me-1" /> LinkedIn
+              <a href="https://www.linkedin.com/in/rajkumargara/" target="_blank" rel="noopener noreferrer" className="btn-accent">
+                <FaLinkedin /> LinkedIn
               </a>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center mb-3">
+        <div className="row justify-content-center mb-2">
           <div className="col-auto text-center">
-            <span className="me-2">Built with</span>
-            <FaHeart className="heart-icon me-2 text-danger" />
-            <span className="me-2">using</span>
-            <FaReact className="react-icon me-2 text-primary" />
-            <span>React & Bootstrap</span>
+            <FaMicrochip className="me-2" style={{ color: 'var(--accent)' }} />
+            <span style={{ color: 'var(--text-secondary)' }}>Built with React & Bootstrap</span>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="col-auto text-center">
-            <p className="mb-1 text-dark">© {currentYear} Rajkumar Gara. All rights reserved.</p>
-            <p className="mb-0 text-muted">Passionate about creating innovative solutions in embedded systems and IoT</p>
+            <p className="mb-1" style={{ color: 'var(--text-primary)' }}>© {currentYear} Rajkumar Gara</p>
+            <p className="mb-0" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Embedded Systems Engineer | Firmware Developer | Software Developer</p>
           </div>
         </div>
       </div>

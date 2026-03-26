@@ -5,28 +5,27 @@ function EducationSection() {
     {
       degree: "Master of Science - Computer Science",
       university: "Purdue University",
-      location: "Fort Wayne, IN, USA",
-      period: "2022 - 2023",
-      gpa: "4.0/4.0",
+      location: "Indiana, US",
+      period: "Aug 2022 - Dec 2023",
+      gpa: "4.00/4.00",
       coursework: [
         "Advanced Embedded Systems",
-        "Machine Learning Applications",
-        "Digital Signal Processing",
         "Computer Architecture",
-        "Data Structures & Algorithms"
+        "Data Structures & Algorithms",
+        "Machine Learning Applications",
+        "Digital Signal Processing"
       ],
       achievements: [
-        "Graduate Teaching Assistant",
-        "Research in Deep Learning Applications",
-        "Dean's List (Multiple Semesters)"
+        "Graduate Teaching Assistant - Deep Learning",
+        "Research Collaboration in Data Science"
       ]
     },
     {
-      degree: "Bachelor of Technology - Electronics & Communication Engineering",
+      degree: "B.Tech - Electronics & Communication Engineering",
       university: "GMR Institute of Technology",
-      location: "Rajam, India",
-      period: "2015 - 2019",
-      gpa: "9.2/10.0",
+      location: "India",
+      period: "June 2015 - May 2019",
+      gpa: "9.16/10.0",
       coursework: [
         "Embedded Systems Design",
         "Digital Electronics",
@@ -35,57 +34,59 @@ function EducationSection() {
         "Communication Systems"
       ],
       achievements: [
-        "Graduated with First Class",
-        "Active in Technical Societies",
-        "Project on Battery Management Systems"
+        "Graduated with Distinction",
+        "Goldmedalist"
       ]
     }
   ];
 
   return (
-    <div className="container-fluid bg-light py-4">
+    <div className="section-container">
       <div className="container">
-        <div className="card bg-white text-dark mb-4 shadow-sm">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-3 text-primary">Education</h2>
-            <div className="row">
-              {education.map((edu, index) => (
-                <div key={index} className="col-12 mb-3">
-                  <div className="card bg-white text-dark h-100 border-0 shadow-sm border-start border-4 border-info">
-                    <div className="card-body">
-                      <div className="d-flex align-items-center mb-3">
-                        <span style={{ fontSize: '2rem', marginRight: '1rem', color: '#0d6efd' }}><FaGraduationCap /></span>
-                        <h3 className="h5 mb-0 text-primary">{edu.degree}</h3>
-                      </div>
-                      <div className="mb-2">
-                        <span className="me-3"><FaUniversity className="me-1 text-primary" />{edu.university}</span>
-                        <span className="me-3"><FaMapMarkerAlt className="me-1 text-primary" />{edu.location}</span>
-                        <span><FaCalendarAlt className="me-1 text-primary" />{edu.period}</span>
-                      </div>
-                      <span className="badge bg-primary mb-3">GPA: {edu.gpa}</span>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <h4 className="h6 text-primary">Key Coursework</h4>
-                          <ul className="list-group list-group-flush">
-                            {edu.coursework.map((course, i) => (
-                              <li key={i} className="list-group-item bg-white text-dark">{course}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="col-md-6">
-                          <h4 className="h6 text-primary">Achievements</h4>
-                          <ul className="list-group list-group-flush">
-                            {edu.achievements.map((achievement, i) => (
-                              <li key={i} className="list-group-item bg-white text-dark">{achievement}</li>
-                            ))}
-                          </ul>
+        <div className="section-card">
+          <h2 className="section-title">Education</h2>
+          <div className="row g-3">
+            {education.map((edu, index) => (
+              <div key={index} className="col-12">
+                <div className="edu-card">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-3">
+                    <div className="d-flex align-items-start">
+                      <FaGraduationCap style={{ fontSize: '1.5rem', marginRight: '0.75rem', color: 'var(--accent)', marginTop: '0.2rem' }} />
+                      <div>
+                        <h3 className="h5 mb-1" style={{ color: 'var(--text-primary)' }}>{edu.degree}</h3>
+                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                          <FaUniversity className="me-1" style={{ color: 'var(--accent)' }} />{edu.university}
+                          <span className="mx-2">|</span>
+                          <FaMapMarkerAlt className="me-1" style={{ color: 'var(--accent)' }} />{edu.location}
                         </div>
                       </div>
                     </div>
+                    <div className="mt-2 mt-md-0 text-md-end">
+                      <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                        <FaCalendarAlt className="me-1" style={{ color: 'var(--accent)' }} />{edu.period}
+                      </div>
+                      <span className="tech-badge mt-1 d-inline-block" style={{ fontSize: '0.8rem' }}>GPA: {edu.gpa}</span>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-7">
+                      <h4 className="mono mb-2" style={{ color: 'var(--accent)', fontSize: '0.82rem' }}>Key Coursework</h4>
+                      <div className="d-flex flex-wrap gap-1 mb-2">
+                        {edu.coursework.map((course, i) => (
+                          <span key={i} className="tech-badge">{course}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="col-md-5">
+                      <h4 className="mono mb-2" style={{ color: 'var(--accent)', fontSize: '0.82rem' }}>Achievements</h4>
+                      {edu.achievements.map((achievement, i) => (
+                        <div key={i} className="exp-list-item" style={{ fontSize: '0.85rem' }}>{achievement}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

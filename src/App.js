@@ -104,10 +104,10 @@ function App() {
   };
 
   return (
-    <div className="app-container bg-light">
+    <div className="app-container">
       <ParticlesBackground />
       {/* Bootstrap Navigation Bar */}
-      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style={{ backgroundColor: '#0d6efd', backdropFilter: 'blur(10px)' }} role="navigation" aria-label="Main navigation">
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Main navigation">
         <div className="container-fluid px-3">
           <button 
             className="navbar-toggler border-0 shadow-none" 
@@ -126,7 +126,7 @@ function App() {
               {navLinks.map((link) => (
                 <li className="nav-item" key={link.name} role="none">
                   <a 
-                    className="nav-link text-white fw-medium px-2 py-1 rounded-pill mx-1" 
+                    className="nav-link fw-medium px-2 py-1 rounded mx-1" 
                     href={link.href}
                     role="menuitem"
                     style={{ 
@@ -138,22 +138,22 @@ function App() {
                     }}
                     onMouseEnter={(e) => {
                       if (!('ontouchstart' in window)) {
-                        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                        e.target.style.transform = 'translateY(-1px)';
+                        e.target.style.color = '#64ffda';
+                        e.target.style.backgroundColor = 'rgba(100, 255, 218, 0.05)';
                       }
                     }}
                     onMouseLeave={(e) => {
+                      e.target.style.color = '';
                       e.target.style.backgroundColor = 'transparent';
-                      e.target.style.transform = 'translateY(0)';
                     }}
                     onTouchStart={(e) => {
-                      e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
-                      e.target.style.transform = 'scale(0.98)';
+                      e.target.style.color = '#64ffda';
+                      e.target.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
                     }}
                     onTouchEnd={(e) => {
                       setTimeout(() => {
+                        e.target.style.color = '';
                         e.target.style.backgroundColor = 'transparent';
-                        e.target.style.transform = 'scale(1)';
                         e.target.blur();
                       }, 150);
                     }}
