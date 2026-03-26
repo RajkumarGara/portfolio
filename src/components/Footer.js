@@ -24,16 +24,9 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="row justify-content-center mb-2">
-          <div className="col-auto text-center">
-            <FaMicrochip className="me-2" style={{ color: 'var(--accent)' }} />
-            <span style={{ color: 'var(--text-secondary)' }}>Built with React & Bootstrap</span>
-          </div>
-        </div>
         <div className="row justify-content-center">
           <div className="col-auto text-center">
             <p className="mb-1" style={{ color: 'var(--text-primary)' }}>© {currentYear} Rajkumar Gara</p>
-            <p className="mb-0" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Embedded Systems Engineer | Firmware Developer | Software Developer</p>
           </div>
         </div>
       </div>

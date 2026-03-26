@@ -15,18 +15,6 @@ function AccomplishmentsSection() {
       impact: "End-to-end vehicle control and remote monitoring"
     },
     {
-      icon: <FaCode />,
-      title: "CAN Timing Optimization",
-      description: "Identified and resolved critical CAN frame drops by optimizing the communication cycle from 32 ms to 64 ms.",
-      impact: "Eliminated data loss in real-time communication"
-    },
-    {
-      icon: <FaGraduationCap />,
-      title: "Perfect GPA at Purdue University",
-      description: "Achieved 4.00/4.00 GPA in M.S. Computer Science while working as Teaching Assistant and Research Collaborator.",
-      impact: "Academic excellence alongside practical work"
-    },
-    {
       icon: <FaMicrochip />,
       title: "Multi-Platform Firmware Expertise",
       description: "Developed production firmware across TI (TMS570), NXP (MC9S12), and ARM Cortex-R5 platforms using CCS, CodeWarrior, and Eclipse.",
