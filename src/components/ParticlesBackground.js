@@ -21,7 +21,7 @@ function ParticlesBackground() {
       vy: (Math.random() - 0.5) * 0.5,
       size: Math.random() * 2 + 1,
       opacity: Math.random() * 0.5 + 0.3,
-      hue: Math.random() * 60 + 200 // Blue to purple range
+      hue: Math.random() * 40 + 155 // Teal/cyan range to match accent
     });
 
     const initParticles = () => {
@@ -114,7 +114,7 @@ function ParticlesBackground() {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        opacity: 0.6,
+        opacity: 0.4,
         pointerEvents: 'none'
       }}
     />

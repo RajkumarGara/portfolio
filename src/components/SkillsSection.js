@@ -1,104 +1,76 @@
-import { FaCode, FaTools, FaMicrochip, FaNetworkWired, FaBrain } from 'react-icons/fa';
+import { FaCode, FaTools, FaMicrochip, FaNetworkWired, FaServer } from 'react-icons/fa';
 
 function SkillsSection() {
   const skillCategories = [
     {
-      title: "Programming Languages",
+      title: "Languages",
       icon: <FaCode />,
-      skills: [
-        { name: "C/C++", level: 95 },
-        { name: "Python", level: 85 },
-        { name: "JavaScript", level: 80 },
-        { name: "HTML/CSS", level: 85 }
-      ]
-    },
-    {
-      title: "Tools & Software",
-      icon: <FaTools />,
-      skills: [
-        { name: "MATLAB Simulink", level: 90 },
-        { name: "Code Composer Studio", level: 95 },
-        { name: "GitHub", level: 85 },
-        { name: "Linux", level: 80 }
-      ]
+      skills: ["C", "C++", "Python", "JavaScript"]
     },
     {
       title: "Controllers & Hardware",
       icon: <FaMicrochip />,
-      skills: [
-        { name: "ARM Cortex R5", level: 95 },
-        { name: "TI Controllers", level: 90 },
-        { name: "Raspberry Pi", level: 85 },
-        { name: "Pico-W", level: 80 }
-      ]
+      skills: ["ARM Cortex-R5", "TI (TMS570, TMS320)", "NXP (MC9S12)", "Raspberry Pi", "Pico-W"]
     },
     {
       title: "Communication Protocols",
       icon: <FaNetworkWired />,
-      skills: [
-        { name: "CAN/J1939", level: 95 },
-        { name: "SPI/I2C", level: 90 },
-        { name: "TCP/IP", level: 85 },
-        { name: "UART/RS232", level: 90 }
-      ]
+      skills: ["CAN", "J1939", "SPI", "I2C", "ISO-SPI", "UART (SCI)", "RS232", "RS485", "TCP/IP"]
     },
     {
-      title: "Core Attributes",
-      icon: <FaBrain />,
-      skills: [
-        { name: "Problem Solving", level: 95 },
-        { name: "Critical Thinking", level: 90 },
-        { name: "Time Management", level: 85 },
-        { name: "Self-Starter", level: 90 }
-      ]
+      title: "Tools & Software",
+      icon: <FaTools />,
+      skills: ["Code Composer Studio", "Freescale CodeWarrior", "Oscilloscope", "CAN232", "Multimeter", "Git", "Eclipse", "JTAG"]
+    },
+    {
+      title: "Operating Systems",
+      icon: <FaServer />,
+      skills: ["Threads", "Concurrency", "Synchronization", "Memory Management", "Scheduling", "Linux", "Kernel Space"]
     }
   ];
 
+  const specializations = [
+    "Embedded Systems Design",
+    "Battery Management Systems",
+    "Real-time Firmware",
+    "Vehicle Control Units",
+    "On-Board Diagnostics",
+    "Hardware-Software Integration"
+  ];
+
   return (
-    <div className="container-fluid bg-light py-4">
+    <div className="section-container">
       <div className="container">
-        <div className="card bg-white text-dark mb-4 shadow-sm">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-3 text-primary">Technical Skills & Expertise</h2>
-            <div className="row">
-              {skillCategories.map((category, index) => (
-                <div key={index} className="col-md-6 col-lg-4 mb-3">
-                  <div className="card h-100 bg-white text-dark border-0 shadow-sm border-start border-4 border-primary">
-                    <div className="card-body">
-                      <div className="d-flex align-items-center mb-3">
-                        <span style={{ fontSize: '1.5rem', marginRight: '1rem', color: '#0d6efd' }}>{category.icon}</span>
-                        <h3 className="h5 mb-0 text-primary">{category.title}</h3>
-                      </div>
-                      <ul className="list-group list-group-flush">
-                        {category.skills.map((skill, skillIndex) => (
-                          <li key={skillIndex} className="list-group-item bg-white text-dark d-flex justify-content-between align-items-center">
-                            <span>{skill.name}</span>
-                            <span className="badge bg-primary ms-2">{skill.level}%</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+        <div className="section-card mb-3">
+          <h2 className="section-title">Technical Skills</h2>
+          <div className="row g-3">
+            {skillCategories.map((category, index) => (
+              <div key={index} className="col-md-6 col-lg-4">
+                <div className="dark-card p-3 h-100">
+                  <div className="d-flex align-items-center mb-3">
+                    <span style={{ fontSize: '1.25rem', marginRight: '0.75rem', color: 'var(--accent)' }}>{category.icon}</span>
+                    <h3 className="h6 mb-0" style={{ color: 'var(--text-primary)' }}>{category.title}</h3>
+                  </div>
+                  <div className="d-flex flex-wrap gap-1">
+                    {category.skills.map((skill, skillIndex) => (
+                      <span key={skillIndex} className="tech-badge">{skill}</span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* Additional Skills Summary */}
-        <div className="card bg-white text-dark mt-2 shadow-sm">
-          <div className="card-body">
-            <h3 className="card-title text-center mb-3 text-primary">Specialized Expertise</h3>
-            <div className="row">
-              {["Embedded Systems Design","Battery Management Systems","Real-time Applications","IoT Development","Vehicle Control Systems","Protocol Implementation"].map((expertise, index) => (
-                <div key={index} className="col-12 col-md-6 col-lg-4 mb-2">
-                  <div className="card bg-primary text-white h-100 border-0 shadow-sm">
-                    <div className="card-body text-center py-2">
-                      <small className="fw-medium">{expertise}</small>
-                    </div>
-                  </div>
+        <div className="section-card">
+          <h3 className="section-title" style={{ fontSize: '1.3rem' }}>Specializations</h3>
+          <div className="row g-2">
+            {specializations.map((expertise, index) => (
+              <div key={index} className="col-6 col-md-4 col-lg-2">
+                <div className="stat-card" style={{ padding: '0.75rem' }}>
+                  <small className="mono" style={{ color: 'var(--accent)', fontSize: '0.75rem' }}>{expertise}</small>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
