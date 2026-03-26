@@ -9,14 +9,15 @@ function EducationSection() {
       period: "Aug 2022 - Dec 2023",
       gpa: "4.00/4.00",
       coursework: [
-        "Advanced Embedded Systems",
-        "Computer Architecture",
-        "Data Structures & Algorithms",
-        "Machine Learning Applications",
-        "Digital Signal Processing"
+        "Operating Systems",
+        "Algorithm Design and Analysis",
+        "Web Development",
+        "Applications of Deep Learning",
+        "Machine Learning",
+        "Natural Language Processing"
       ],
       achievements: [
-        "Graduate Teaching Assistant - Deep Learning",
+        "Teaching Assistant - Deep Learning",
         "Research Collaboration in Data Science"
       ]
     },
@@ -27,9 +28,8 @@ function EducationSection() {
       period: "June 2015 - May 2019",
       gpa: "9.16/10.0",
       coursework: [
-        "Embedded Systems Design",
+        "Microprocessors and Microcontrollers",
         "Digital Electronics",
-        "Microprocessor Systems",
         "Control Systems",
         "Communication Systems"
       ],
